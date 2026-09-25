@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dunia Memancing </title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: rgba(0, 0, 0, 0.35);
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav h2 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* SECTION */
+        section {
+            padding: 50px 8%;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        /* CARD */
+        .tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .tool {
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .tool:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.25);
+        }
+
+        /* FOTO ALAT */
+        .tool-photo {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .tool h3 {
+            font-size: 23px;
+            margin-bottom: 8px;
+        }
+
+        .tool p {
+            font-size: 14px;
+        }
+
+        /* PILIHAN */
+        .options {
+            display: none;
+            margin-top: 20px;
+            animation: muncul 0.4s ease;
+        }
+
+        .options.active {
+            display: block;
+        }
+
+        @keyframes muncul {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .option {
+            background: rgba(0,0,0,0.25);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .option img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .option h3 {
+            margin-bottom: 5px;
+        }
+
+        /* IKAN */
+        .fish {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .fish-card {
+            background: rgba(255,255,255,0.15);
+            border-radius: 18px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .fish-card img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+        }
+
+        .fish-card h3 {
+            padding: 15px;
+        }
+
+        /* TIPS */
+        .tips {
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            padding: 25px;
+            line-height: 2;
+        }
+
+        .tips li {
+            margin-left: 20px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: rgba(0,0,0,0.4);
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <h2> MancingKu</h2>
+
+        <div>
+            <a href="#alat">Alat</a>
+            <a href="#ikan">Ikan</a>
+            <a href="#tips">Tips</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1> Dunia Memancing</h1>
+
+        <p>
+            Kenali berbagai alat, jenis ikan, dan tips dalam dunia memancing.
+        </p>
+    </div>
+
+
+    <!-- ALAT MEMANCING -->
+    <section id="alat">
+
+        <h2> Peralatan Memancing</h2>
+
+        <div class="tools">
+
+            <!-- JORAN -->
+            <div class="tool" onclick="showOptions('joran')">
+
+                <img src="joran.jpg"
+                     class="tool-photo"
+                     alt="Foto Joran Pancing">
+
+                <h3>Joran</h3>
+
+                <p>
+                    Klik untuk melihat jenis joran
+                </p>
+
+            </div>
+
+
+            <!-- REEL -->
+            <div class="tool" onclick="showOptions('reel')">
+
+                <img src="reel.jpg"
+                     class="tool-photo"
+                     alt="Foto Reel Pancing">
+
+                <h3>Reel</h3>
+
+                <p>
+                    Klik untuk melihat jenis reel
+                </p>
+
+            </div>
+
+
+            <!-- KAIL -->
+            <div class="tool" onclick="showOptions('kail')">
+
+                <img src="kail.jpg"
+                     class="tool-photo"
+                     alt="Foto Kail Pancing">
+
+                <h3>Mata Kail</h3>
+
+                <p>
+                    Klik untuk melihat jenis kail
+                </p>
+
+            </div>
+
+
+            <!-- SENAR -->
+            <div class="tool" onclick="showOptions('senar')">
+
+                <img src="senar.jpg"
+                     class="tool-photo"
+                     alt="Foto Senar Pancing">
+
+                <h3>Senar</h3>
+
+                <p>
+                    Klik untuk melihat jenis senar
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- JENIS JORAN -->
+        <div class="options" id="joran">
+
+            <h2> Jenis-Jenis Joran</h2>
+
+            <div class="option-grid">
+
+                <div class="option">
+                    <img src="joran-spinning.jpg" alt="Spinning Rod">
+                    <h3>Spinning Rod</h3>
+                    <p>Cocok untuk pemancing pemula dan berbagai teknik.</p>
+                </div>
+
+                <div class="option">
+                    <img src="joran-casting.jpg" alt="Casting Rod">
+                    <h3>Casting Rod</h3>
+                    <p>Digunakan untuk teknik casting.</p>
+                </div>
+
+                <div class="option">
+                    <img src="joran-telescopic.jpg" alt="Telescopic Rod">
+                    <h3>Telescopic Rod</h3>
+                    <p>Praktis karena dapat dilipat menjadi lebih pendek.</p>
+                </div>
+
+                <div class="option">
+                    <img src="joran-surf.jpg" alt="Surf Rod">
+                    <h3>Surf Rod</h3>
+                    <p>Cocok digunakan untuk memancing dari pantai.</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- JENIS REEL -->
+        <div class="options" id="reel">
+
+            <h2> Jenis-Jenis Reel</h2>
+
+            <div class="option-grid">
+
+                <div class="option">
+                    <img src="reel-spinning.jpg" alt="Spinning Reel">
+                    <h3>Spinning Reel</h3>
+                    <p>Mudah digunakan dan cocok untuk pemula.</p>
+                </div>
+
+                <div class="option">
+                    <img src="reel-baitcasting.jpg" alt="Baitcasting Reel">
+                    <h3>Baitcasting Reel</h3>
+                    <p>Cocok untuk casting dan kontrol lemparan.</p>
+                </div>
+
+                <div class="option">
+                    <img src="reel-spincast.jpg" alt="Spincast Reel">
+                    <h3>Spincast Reel</h3>
+                    <p>Mudah digunakan untuk pemancing pemula.</p>
+                </div>
+
+                <div class="option">
+                    <img src="reel-surf.jpg" alt="Surf Reel">
+                    <h3>Surf Reel</h3>
+                    <p>Cocok untuk memancing dari pantai.</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- JENIS KAIL -->
+        <div class="options" id="kail">
+
+            <h2> Jenis-Jenis Mata Kail</h2>
+
+            <div class="option-grid">
+
+                <div class="option">
+                    <img src="kail-j.jpg" alt="J Hook">
+                    <h3>J-Hook</h3>
+                    <p>Bentuk kail menyerupai huruf J.</p>
+                </div>
+
+                <div class="option">
+                    <img src="kail-circle.jpg" alt="Circle Hook">
+                    <h3>Circle Hook</h3>
+                    <p>Memiliki ujung kail yang melengkung ke dalam.</p>
+                </div>
+
+                <div class="option">
+                    <img src="kail-treble.jpg" alt="Treble Hook">
+                    <h3>Treble Hook</h3>
+                    <p>Memiliki tiga mata kail.</p>
+                </div>
+
+                <div class="option">
+                    <img src="kail-single.jpg" alt="Single Hook">
+                    <h3>Single Hook</h3>
+                    <p>Memiliki satu mata kail.</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- JENIS SENAR -->
+        <div class="options" id="senar">
+
+            <h2> Jenis-Jenis Senar</h2>
+
+            <div class="option-grid">
+
+                <div class="option">
+                    <img src="senar-mono.jpg" alt="Monofilament">
+                    <h3>Monofilament</h3>
+                    <p>Senar sederhana yang mudah digunakan.</p>
+                </div>
+
+                <div class="option">
+                    <img src="senar-fluoro.jpg" alt="Fluorocarbon">
+                    <h3>Fluorocarbon</h3>
+                    <p>Memiliki tingkat visibilitas yang rendah di air.</p>
+                </div>
+
+                <div class="option">
+                    <img src="senar-braid.jpg" alt="Braided Line">
+                    <h3>Braided Line</h3>
+                    <p>Kuat dan memiliki diameter relatif kecil.</p>
+                </div>
+
+                <div class="option">
+                    <img src="senar-pe.jpg" alt="PE Line">
+                    <h3>PE Line</h3>
+                    <p>Sering digunakan untuk berbagai teknik casting.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- JENIS IKAN -->
+    <section id="ikan">
+
+        <h2> Jenis Ikan</h2>
+
+        <div class="fish">
+
+            <div class="fish-card">
+                <img src="ikan-gabus.jpg" alt="Ikan Gabus">
+                <h3>Ikan Gabus</h3>
+            </div>
+
+            <div class="fish-card">
+                <img src="ikan-lele.jpg" alt="Ikan Lele">
+                <h3>Ikan Lele</h3>
+            </div>
+
+            <div class="fish-card">
+                <img src="ikan-nila.jpg" alt="Ikan Nila">
+                <h3>Ikan Nila</h3>
+            </div>
+
+            <div class="fish-card">
+                <img src="ikan-mas.jpg" alt="Ikan Mas">
+                <h3>Ikan Mas</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TIPS -->
+    <section id="tips">
+
+        <h2> Tips Memancing</h2>
+
+        <div class="tips">
+
+            <ul>
+                <li>Pilih joran sesuai teknik memancing.</li>
+
+                <li>Gunakan ukuran kail sesuai target ikan.</li>
+
+                <li>Pilih senar yang sesuai dengan kondisi air.</li>
+
+                <li>Gunakan umpan yang sesuai dengan ikan target.</li>
+
+                <li>Periksa kondisi reel dan senar sebelum memancing.</li>
+
+                <li>Jaga kebersihan tempat setelah selesai memancing.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+             MancingKu © 2026
+        </p>
+
+        <p>
+            Website sederhana tentang dunia memancing
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        function showOptions(id) {
+
+            // Menutup semua pilihan
+            const allOptions =
+                document.querySelectorAll('.options');
+
+            allOptions.forEach(function(option) {
+                option.classList.remove('active');
+            });
+
+
+            // Membuka pilihan yang diklik
+            const selected =
+                document.getElementById(id);
+
+            selected.classList.add('active');
+
+
+            // Scroll otomatis
+            setTimeout(function() {
+
+                selected.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }, 100);
+        }
+
+    </script>
+
+</body>
+</html>
